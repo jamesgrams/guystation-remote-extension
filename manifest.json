@@ -1,0 +1,37 @@
+{
+    "name": "GuyStation Remote Extension",
+    "version": "0.0.1",
+    "manifest_version": 2,
+    "description": "Enhancements to GuyStation for remote devices",
+    "homepage_url": "https://game103.net",
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": true
+    },
+    "browser_action": {
+        "default_title": "GuyStation Remote Extension"
+    },
+    "permissions": [
+        "*://*/*",
+        "tabs"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "http://localhost/*",
+                "http://127.0.0.1/*",
+                "http://192.168.1.2/*",
+                "http://192.168.1.18/*"
+            ],
+            "js": ["content.js"],
+            "run_at": "document_end"
+        }
+    ],
+    "icons": {
+        "16": "icon16.png",
+        "48": "icon32.png",
+        "138": "icon128.png"
+    }
+}
